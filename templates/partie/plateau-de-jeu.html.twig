@@ -61,54 +61,33 @@
              </div>
          </div> #}
     <div class="adversaire-top">
-        <div class="container-avatar-joueur-plateau">
-            <img src="/assets/image/carte-joueur-avatar.png" alt=""/>
-            <img class="avatar-joueur-plateau" src="/assets/image/ava5.jpg" alt=""/>
-            <span>Player 2</span>
-        </div>
-            <div class="carte-adversaire">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
-                <img src="/assets/image/carte-dos.png" alt="">
+        {% for joueur in listeJoueursAdverse %}
+        <div class="joueur-adverse">
+            <div class="container-avatar-joueur-plateau">
+                <img src="/assets/image/carte-joueur-avatar.png" alt=""/>
+                <img class="avatar-joueur-plateau" src="/assets/image/ava{{joueur.avatar}}.jpg" alt=""/>
+                <span>{{joueur.pseudo}}</span>
             </div>
+            <div class="carte-adversaire">
+            {% for carte in joueur.cartes %}
+                <img src="/assets/image/carte-dos.png" alt="">
+            {% endfor %}            
+            </div>
+        </div>      
+        {% endfor %}  
     </div>
-    <div class="adversaire-side">
 
-    </div>
     <div class="joueur-bottom">
         <div class="container-avatar-joueur-plateau">
             <img src="/assets/image/carte-joueur-avatar.png" alt=""/>
-            <img class="avatar-joueur-plateau" src="/assets/image/ava5.jpg" alt=""/>
-            <span>Player 1</span>
+            <img class="avatar-joueur-plateau" src="/assets/image/ava{{joueurActuel.avatar}}.jpg" alt=""/>
+            <span>{{joueurActuel.pseudo}}</span>
         </div>
         <div class="carte-joueur">
-            <img src="/assets/image/mandragorefini.png" alt=""/>
-            <img src="/assets/image/lapis1fini.png" alt=""/>
-            <img src="/assets/image/chauvesourisfini.png" alt=""/>
-            <img src="/assets/image/cornefini.png" alt=""/>
-            <img src="/assets/image/crapaudfini.png" alt=""/>
-            <img src="/assets/image/mandragorefini.png" alt=""/>
-            <img src="/assets/image/lapis1fini.png" alt=""/>
-            <img src="/assets/image/chauvesourisfini.png" alt=""/>
-            <img src="/assets/image/cornefini.png" alt=""/>
-            <img src="/assets/image/crapaudfini.png" alt=""/>
-                <img src="/assets/image/mandragorefini.png" alt=""/>
-            <img src="/assets/image/lapis1fini.png" alt=""/>
-            <img src="/assets/image/chauvesourisfini.png" alt=""/>
-            <img src="/assets/image/cornefini.png" alt=""/>
-            <img src="/assets/image/crapaudfini.png" alt=""/>
+            {% for carte in joueurActuel.cartes %}
+                
+                <img src="/assets/image/{{carte.type}}.png" value="{{carte.id}} alt=""/>
+            {% endfor %}
         </div>
     </div>
 

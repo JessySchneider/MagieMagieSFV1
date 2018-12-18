@@ -15,7 +15,6 @@ function listerJoueurLobby(){
 }
 
 $('.demarrer-partie').on('click',function(){
-    
     $.ajax({
         type: "POST",
         url: '/plateauDeJeu',
@@ -34,7 +33,7 @@ function rejoindrePartie(){
         data: {}
     }).done(function(data){
         console.log(data);
-        if(data == "DEMARREhE"){
+        if(data == "DEMARREE"){
             window.location = "/plateauDeJeu";   
         }        
     });

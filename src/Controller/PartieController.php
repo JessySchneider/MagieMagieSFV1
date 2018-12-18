@@ -103,10 +103,29 @@ class PartieController extends AbstractController
      /**
      * @Route ("/plateauDeJeu")
      */
-    public function plateauDeJeu(PartieService $partieService, Request $req){
+    public function plateauDeJeu(PartieService $partieService, PartieRepository $partieRepository, Request $req){
         $idPartie = $this->getSessionVariable("idPartie",$req);
-        $partieService->demarrerPartie($idPartie);
-        return $this->render('partie/plateau-de-jeu.html.twig');
+        
+        $partie = $partieRepository->find($idPartie);
+        if($partie->getEtat() !== "DEMARREE"){
+            $partieService->demarrerPartie($idPartie);
+        }
+     
+        $joueurs = $partie->getJoueurs();
+        
+        foreach($joueurs as $joueur){
+            if($joueur->getId() === $this->getSessionVariable('idJoueur',$req)){
+                $joueurPrincipal = $joueur;
+            }else{
+                $joueursAdverses[] = $joueur;
+            }
+        }
+
+        return $this->render('partie/plateau-de-jeu.html.twig',
+                            [
+                                'listeJoueursAdverse'=>$joueursAdverses,
+                                'joueurActuel'=>$joueurPrincipal
+                            ]);
     }
     /**
      * @Route ("/etatPartie")

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 var maximumAngle = 70;
 var cartesJoueur = $('.carte-joueur img').length;
 var iJoueur = -(Math.floor(cartesJoueur/2));
@@ -14,16 +13,28 @@ var cartesAdversaire = $('.carte-adversaire img').length;
 var iAdversaire = -(Math.floor(cartesAdversaire/2));
 var angleAdversaire = maximumAngle/cartesAdversaire;
 
+var cartesJouees = new Array();
+
 $('.carte-joueur img').each(function(){
-    $(this).css("transform","rotate("+angleJoueur*iJoueur+"deg)");
+    // $(this).css("transform","rotate("+angleJoueur*iJoueur+"deg)");
     iJoueur++;
 });
 
-$('.carte-adversaire img').each(function(){
-var angleAdversaire = maximumAngle/cartesAdversaire;
-$(this).css("transform","rotate("+angleAdversaire*iAdversaire+"deg)");
-    iAdversaire++;
+$('.carte-joueur img').on("click",function(){
+    cartesJouees.push($(this));
+    console.log(cartesJouees);
+    $(this).toggleClass("selected");
 });
+
+$('.joueur-adverse').each(function(){
+    // $('.carte-adversaire').css('transform-origin','2em -20em');
+    // $('.carte-adversaire img').each(function(){
+    //     var angleAdversaire = maximumAngle/cartesAdversaire;
+    //     $(this).css("transform","rotate("+angleAdversaire*iAdversaire+"deg)");
+    //         iAdversaire++;
+    //     });
+});
+
 
 // var rad = 16.65;
 // $('.carte-joueur img').each(function(){
