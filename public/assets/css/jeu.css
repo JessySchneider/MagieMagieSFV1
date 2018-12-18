@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "enchanted_land-webfont";
+    src: url("../font/enchanted_land-webfont.eot"),
+    url("../font/enchanted_land-webfont.woff") format("woff"),
+    url("../font/enchanted_land-webfont.otf") format("opentype");
+}
+
+body{
+  background:url("../image/login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  text-align: center;
+  font-family: "enchanted_land-webfont";
+  font-size: 16px;
+  color:white;
+}
+
+h1{
+    color:white;
+    font-size: 3rem;
+}
+
+/* .blocAvatar{
+    display: flex;
+    width:147px;
+    color:white;    
+    font-weight:bold;
+    font-size:2rem;
+    text-shadow:1px 1px 2px black;
+    position:relative;
+    margin-top:20px;
+    flex-direction: row;
+    border-radius:5px;
+} 
+
+.blocAvatar span{
+    position:absolute;
+    bottom: 33px;
+    width:100%;
+    text-align:center;
+    background-color:#0d0d0d80;
+}
+
+.blocAvatar input[type=radio]{
+    display: none;
+}
+
+.blocAvatar:hover img /* Apparence au survol des liens 
+{
+  border-style: solid;
+    border-width: 10px;
+    border-color: whitesmoke;
+    border-radius: 30px;
+    /*box-shadow: 9px 10px 7px -3px rgb(0,0,0); 
+    transform:scale(1.25);
+    z-index: 10;
+    position: relative;
+}
+
+.blocAvatar img {
+    transition: all 0.1s linear; 
+} */
+
+
+
+/* img{
+width: 150px;
+height: 200px;
+} */
+
+
+/* .sort{
+    position: absolute;
+    z-index: -1;
+    width: 147px;
+} */

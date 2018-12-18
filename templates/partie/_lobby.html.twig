@@ -1,0 +1,7 @@
+{% for joueur in listeJoueurs %}
+    <div class="container-informations-joueurs-lobby">
+        <img src="/assets/image/carte-joueur-avatar.png" alt=""/>
+        <img class="avatar-joueur" src="assets/image/ava{{joueur.avatar}}.jpg" alt=""/>
+        <span>{{joueur.pseudo}}</span>
+    </div>
+{% endfor %}

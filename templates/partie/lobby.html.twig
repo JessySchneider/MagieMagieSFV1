@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="assets/css/lobby.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<h1>{{nomPartie}}</h1>
+<main>
+    <div class="lobby">
+    
+    </div>
+</main>
+<footer>
+    <a href="/plateauDeJeu" class="demarrer-partie" value="{{idPartie}}" >Démarrer la partie</a>
+</footer>
+
+{% endblock %}

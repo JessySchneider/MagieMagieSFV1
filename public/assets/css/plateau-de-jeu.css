@@ -1,0 +1,165 @@
+
+.informations-sort{
+    /* display: none; Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    /* display: flex; */
+   
+}
+
+.testmodal{
+    background-color: #fefefeAA;
+    margin: 4% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid black;
+    color:black;
+    width: 70%; /* Could be more or less, depending on screen size */
+    height:445px;
+    display: flex;
+    flex-direction: row;    
+    align-content: flex-start;
+    flex-wrap: wrap;
+
+}
+.ingredient-sort{
+    display: inline-flex;
+    flex-direction: row;
+    align-content: flex-start;
+
+}
+
+.sort{
+    margin: 0px 5px;
+    font-size: 1.5rem;
+    width: 48%;
+    height: 150px;
+    display: flex;
+    align-self:center;
+    justify-content: center;
+    /* text-align: center; */
+    /* background-color: #ffffff30; */
+}
+
+.sort img, .sort i{
+    align-self: center;
+}
+
+.informations-sort img{
+    height:120px;
+    padding:0 5px 0 5px;
+}
+
+.adversaire-top{
+    height:300px;
+    display:flex;
+    width: 70%;
+    margin: auto;
+    background-color: #0d0d0d80;
+}
+
+.carte-adversaire{
+    margin-left:350px;  
+    margin-top:50px;
+}
+.carte-adversaire img{
+    height: 150px;
+    position:absolute;
+    transform-origin : 2em -20em;
+}
+
+/* ------------ Partie correspondant au joueur du bas ---------------- */
+
+.joueur-bottom{
+/*    position:absolute;
+    bottom: 0;*/
+    margin:auto;
+    display: flex;
+    align-content: space-around;
+    width: 70%;
+    background-color: #ffffff30;
+    
+}
+
+.carte-joueur{
+    margin-left:350px;  
+    margin-top:-50px;  
+}
+
+.carte-joueur img{
+    height: 200px;
+    position:absolute;
+    transform-origin : 3em 30em;
+    transition: all 0.3s ease-out;
+}
+
+.carte-joueur img:hover{
+    transform: scale(1.2);
+    box-shadow: 0px 0px 20px 10px rgba(247,0,41,0.88);
+    z-index:10;
+}
+
+.container-avatar-joueur-plateau{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 120px;
+ 
+ }
+
+.container-avatar-joueur-plateau span{
+    font-size: 2rem;
+    text-shadow:1px 1px 2px black;
+    text-align:center;
+    background-color:#0d0d0d80;
+ }
+ 
+
+ 
+ .container-avatar-joueur-plateau img{
+    height: 200px;
+    width: 120px;
+ }
+ 
+ 
+ .container-avatar-joueur-plateau .avatar-joueur-plateau{
+     position: absolute;
+     z-index: -1;
+ }
+ 
+ /* ----- PANNEAU LATERAL SORT ----- */
+ 
+ .container-sort{
+     width:200px;
+     height: 100%;
+     background-color: black;
+     color:white;
+     position: absolute;
+     top:0;
+     right:0;
+     display: flex;
+     align-content: center;
+    /*     display:none;*/
+ }
+ 
+/*  .container-sort::before{
+    font-family: "Font Awesome 5 Free"
+    content :"f05a";
+         display:none;
+ }*/
+ 
+ .information-sort-icone-panel{
+     width: 40px;
+     height: inherit;
+     padding:10px;
+     font-size: 1.8rem;
+     text-align: center;
+     color:#b70000;
+     position:relative;
+ }

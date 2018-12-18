@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="assets/css/liste-partie.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<div class="informations-utilisateur">   
+    <img src="assets/image/carte-joueur-avatar.png" alt=""/>
+    <img class="avatar-joueur" src="assets/image/ava{{joueurActuel.avatar}}.jpg" alt=""/>
+    <span>{{joueurActuel.pseudo}}</span>
+</div>
+  <h3 class="titre-creez-partie" >Créez votre partie </h3>
+    <form action="" methode="POST" id="create-partie-form"  class="container-creation-partie">
+        <input type="text" name="nomPartie"  placeholder="Nom de votre partie" />
+        <input type="submit" value="Créer une partie" class="creer-une-partie" />
+    </form>
+<div id="message"></div>
+<h3 class="titre-liste-partie">Liste des parties disponibles </h3>
+
+<div class="container-listes-parties">
+
+{# {% for partie in listeParties %} #}
+    <div class="bloc-partie">
+        <input type="hidden" name="" value="IDPARTIE">
+        <div class="nom-partie">
+            {# {{ partie.nom }} - {{ partie.joueurs | length}}   #}
+        </div>
+        {# {% for joueur in partie.joueurs %} #}
+
+        <div class="informations-participant">
+            {# <span><img src="assets/image/ava{{ joueur.avatar }}.jpg"</span>  #}
+            {# <span>{{ joueur.pseudo }}</span>  #}
+        </div>
+        {# {% endfor %} #}
+        <button class="rejoindre-partie" >Rejoindre la partie</button>       
+    </div>
+{# {% endfor %} #}
+</div>
+
+
+</div>
+
+{% endblock %}

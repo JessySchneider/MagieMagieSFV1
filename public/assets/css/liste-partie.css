@@ -1,0 +1,217 @@
+
+
+.informations-utilisateur{
+    display: flex;
+    width: 175px;
+    color:white;    
+    font-weight:bold;
+    font-size:2rem;
+    text-shadow:1px 1px 2px black;
+    position:relative;
+    margin-top:20px;
+    flex-direction: column;
+    border-radius:5px;
+    box-shadow: 0px 0px 20px 10px rgba(247,0,41,0.88);
+}
+
+.informations-utilisateur span{
+    position:absolute;
+    bottom: 33px;
+    width:100%;
+    text-align:center;
+    background-color:#0d0d0d80;
+}
+
+
+.informations-utilisateur img{
+    width: 175px;
+    align-self: center;
+    height: 300px;
+    
+}
+
+.avatar-joueur{
+    position: absolute;
+    z-index: -1;
+    width: 147px;
+}
+
+
+.informations-utilisateur, .container-listes-parties{
+    border-radius: 5px;
+}
+
+
+/* ---- Container creation partie --- */
+.titre-creez-partie{
+    text-align: center;
+    padding:10px;
+    font-size:3rem;
+    text-shadow:1px 1px 2px black;
+    width: 80%;
+    margin:-310px auto 10px auto;
+    color:white;
+}
+
+/* ---- Bloc CSS pour la liste des parties ---*/
+
+.titre-liste-partie{
+    text-align: center;
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    padding:10px;
+    font-size:3rem;
+    text-shadow:1px 1px 2px black;
+    width: 65%;
+    margin:30px auto 10px auto;
+    color:white;
+}
+
+.container-creation-partie{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 0 auto;
+    
+}
+
+.container-creation-partie input[type=text]{
+    border-radius: 5px 0px 0px 5px;
+    border:inherit;
+    width:400px;
+    padding:5px;
+    transition:all 0.3s ease-out;
+   
+}
+
+.container-creation-partie input[type=text]:focus{
+    border-radius: 5px;
+    box-shadow: 0px 0px 29px 0px rgba(219,35,35,1);
+    outline: rgba(219,35,35,1) auto 5px;
+}
+
+.creer-une-partie{
+    cursor:pointer;
+    padding:10px;
+    color:white;
+    background-color:#b70000;
+    border:inherit;
+    border-radius: 0px 5px 5px 0px;
+    transition : all 0.3s ease-out;
+    font-family: "enchanted_land-webfont";
+    font-size:1.5rem;
+}
+
+.creer-une-partie:hover{
+    color:white;
+    background-color: #a50000;
+}
+
+
+.message-error, .message-succes{
+    text-align: center;
+    max-width:40%;
+    margin: 10px auto;
+    font-size: 2rem;
+    position:relative;
+    padding:20px;
+    height: 0px;
+    transition: all 0.3s ease-out;
+    color:white;
+}
+#message{
+    opacity: 0;
+    margin-bottom:50px;
+    transition: all 0.3s ease-out;
+}
+
+.message-succes{
+    height:100%;
+    background-color: #119200;
+}
+
+.message-error{
+    height:100%;
+    background-color: #a50000;
+}
+
+.icone-message{
+    position:absolute;
+    top:0;
+    right:0;
+    margin-top:-10px;
+    margin-right:-10px;
+}
+
+
+.container-listes-parties{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;  
+    flex-wrap: wrap;
+}
+
+.container-listes-parties h2{
+    display:block;
+}
+
+.bloc-partie{
+    width: 300px;
+    background-color:#ffffff30;
+    position:relative;
+    min-height: 405px;
+    margin:20px 40px 20px 0px;
+}
+
+.bloc-partie img{
+    height: 50px;
+    margin-right:5px;
+    
+}
+
+.nom-partie{
+    padding:20px;
+    background-color:#ffffffAA;
+    font-size:1.5rem;
+    text-shadow:1px 1px 2px black;
+}
+
+.informations-participant{
+    margin:20px 0px;
+    background-color:#ffffffAA;
+    font-size:2rem;
+    display: flex;
+    text-shadow:1px 1px 2px black;
+    /*align-content: center;*/
+    
+}
+.informations-participant span{
+    line-height: 50px;
+}
+
+
+.rejoindre-partie{
+    width: 100%;
+    padding:10px;
+    color:white;
+    background-color:#b70000;
+    border:inherit;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    transition : all 0.3s ease-out;
+    font-family: "enchanted_land-webfont";
+    font-size:1.5rem;
+}
+
+.rejoindre-partie:hover{
+    cursor: pointer;
+    color:white;
+    background-color: #a50000;   
+}
+
+
+
+ 

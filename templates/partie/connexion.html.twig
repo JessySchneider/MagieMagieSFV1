@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="assets/css/accueil.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<h1>Choisissez un nom d'utilisateur et un avatar</h1>
+  <div class="message"></div>
+<div class="blocIdentification">
+
+  <form action="" method="POST" id="formConnexion">
+    <input type="text" placeholder="Nom d'utilisateur" id="utilisateur" name="utilisateur"  class="identite">
+    <div class="blocAvatar">
+      <div class="avatar" name="body" >
+        <img src="assets/image/ava0.jpg" id="0"alt="" />
+        <img src="assets/image/ava1.jpg" id="1"alt="" />
+        <img src="assets/image/ava2.jpg" id="2"alt="" />
+        <img src="assets/image/ava3.jpg" id="3"alt="" />
+        <img src="assets/image/ava4.png" id="4"alt="" />
+        <img src="assets/image/ava5.jpg" id="5"alt="" />
+        <img src="assets/image/ava6.jpg" id="6"alt="" />
+        <img src="assets/image/ava7.jpg" id="7"alt="" />
+      </div>
+    </div>
+    <input type="submit" value="Se connecter" class="valide">
+  </form>
+
+
+</div>
+
+{% endblock %}

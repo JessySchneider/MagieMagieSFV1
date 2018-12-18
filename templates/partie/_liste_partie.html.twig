@@ -1,0 +1,15 @@
+{% for partie in listeParties %} 
+    <div class="bloc-partie">
+        <div class="nom-partie">
+            {{ partie.nom }} - {{ partie.joueurs | length}}  
+        </div>
+        {% for joueur in partie.joueurs %}
+
+        <div class="informations-participant">
+            <span><img src="assets/image/ava{{ joueur.avatar }}.jpg"</span>  
+            <span>{{ joueur.pseudo }}</span>  
+        </div>
+        {% endfor %} 
+        <button class="rejoindre-partie" value="{{partie.id}}" >Rejoindre la partie</button>       
+    </div>
+{% endfor %}
