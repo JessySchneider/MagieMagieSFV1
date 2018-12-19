@@ -185,6 +185,31 @@ class PartieService {
         
         return $string;
     }
+
+
+    public function isSortValid($tabCartesId){
+
+        $typeCarte1 = $this->cr->find($tabCartesId[0])->getType();
+        $typeCarte2 = $this->cr->find($tabCartesId[1])->getType();
+        
+        $cartesSortJouees = array($typeCarte1,$typeCarte2);
+
+        if(in_array(Carte::CORNE_LICORNE, $cartesSortJouees) && in_array(Carte::BAVE_CRAPAUD, $cartesSortJouees)){
+            // $this->sortInvisibilite($partie, $joueur);
+            return $string = "Invisibilite";
+        }elseif(in_array(Carte::CORNE_LICORNE, $cartesSortJouees) && in_array(Carte::MANDRAGORE, $cartesSortJouees)){
+            // $this->sortPhiltredAmour($joueur, $targetid);
+            return $string = "Philtre d'amour";
+        }elseif(in_array(Carte::BAVE_CRAPAUD, $cartesSortJouees) && in_array(Carte::LAPIS_LAZULI, $cartesSortJouees)){
+            // $this->sortHypnose($joueur, $targetid, $carteid3);
+            return $string =  "Hypnose";
+        }elseif(in_array(Carte::AILE_CHAUVE_SOURIS, $cartesSortJouees) && in_array(Carte::LAPIS_LAZULI, $cartesSortJouees)){
+            // $this->sortDivination($partie, $joueur->getId());
+            return $string = "Divination";
+        }else{
+            return $string = "Sort invalide";
+        }
+    }
     
     private function sortInvisibilite($partie, $lanceur){
        $joueurs = $this->pr->getJoueurNonElimine($partie->getId());
@@ -195,7 +220,7 @@ class PartieService {
                $nbcarte = count($carteJoueur);
                
                if($nbcarte == 1){
-                   $carteRecup[] = $carteJoueur[0];
+                   $cartesRecup[] = $carteJoueur[0];
                } 
                else {
                     $indiceAleatoire = rand(0, $nbcarte-1);
@@ -205,7 +230,6 @@ class PartieService {
            }
         }
         foreach ($cartesRecup as $carte){
-            dump($carte);
             $lanceur->addCarte($carte);
             $carte->setJoueur($lanceur);
         }

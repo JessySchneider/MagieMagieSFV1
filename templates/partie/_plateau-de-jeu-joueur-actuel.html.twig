@@ -1,0 +1,13 @@
+<div class="container-avatar-joueur-plateau">
+    <img src="/assets/image/carte-joueur-avatar.png" value="{{joueurActuel.id}}" alt=""/>
+    <img class="avatar-joueur-plateau" src="/assets/image/ava{{joueurActuel.avatar}}.jpg"  alt=""/>
+    <span>{{joueurActuel.pseudo}}</span>
+</div>
+<div class="carte-joueur">
+    {% for carte in joueurActuel.cartes %}
+        <img src="/assets/image/{{carte.type}}.png" value="{{carte.id}}" alt=""/>
+    {% endfor %}
+</div>
+
+
+

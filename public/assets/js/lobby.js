@@ -32,7 +32,6 @@ function rejoindrePartie(){
         url: '/etatPartie',
         data: {}
     }).done(function(data){
-        console.log(data);
         if(data == "DEMARREE"){
             window.location = "/plateauDeJeu";   
         }        

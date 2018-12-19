@@ -1,4 +1,8 @@
 
+main{
+    background-color: #ffffff48;
+    height:100%;
+}
 .informations-sort{
     /* display: none; Hidden by default */
     position: fixed; /* Stay in place */
@@ -60,11 +64,10 @@
     /* width: 30%; */
 }
 .adversaire-top{
-    height:450px;
+    height:350px;
     display:flex;
     width: 90%;
     margin: auto;
-    background-color: #0d0d0d80;
     justify-content: space-around;
 }
 
@@ -77,6 +80,46 @@
     /* transform-origin : 2em -20em; */
 }
 
+.lancer-sort, .passer-tour, .message-cible{
+    height: 0px;
+    width: 30%;
+    margin: 0 auto;
+    font-size:2em;
+    background-color: #b70000;
+    border-radius: 5px;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-out; 
+}
+
+.a-la-main{
+    border:5px white solid;
+}
+
+.message{
+    height: 0px;
+    width: 30%;
+    margin: 0 auto;
+    font-size:2em;
+    transition: all 0.3s ease-out; 
+    border-radius: 5px;
+    opacity: 0;
+    line-height: 40px;
+}
+
+.mon-tour{
+    background-color:#49b800c2;
+}
+.pas-mon-tour{
+    background-color: #a50000c2;
+
+}
+
+.lancer-sort:hover{
+    cursor: pointer;
+    background-color: #a50000;
+}
+
 /* ------------ Partie correspondant au joueur du bas ---------------- */
 
 .joueur-bottom{
@@ -86,7 +129,6 @@
     display: flex;
     align-content: space-around;
     width: 90%;
-    background-color: #ffffff30;
     
 }
 
@@ -106,6 +148,11 @@
 .selected{
     transition: all 0.3s ease-out;
     box-shadow: 0px 0px 20px 10px rgba(238, 219, 53, 0.88);
+}
+
+.selected-bis{
+    transition: all 0.3s ease-out;
+    box-shadow: 0px 0px 20px 10px rgba(31, 87, 243, 0.88);
 }
 
 

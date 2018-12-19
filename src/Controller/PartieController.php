@@ -11,6 +11,7 @@ use App\Service\JoueurService;
 use App\Repository\JoueurRepository;
 use App\Service\PartieService;
 use App\Repository\PartieRepository;
+use App\Repository\CarteRepository;
 
 class PartieController extends AbstractController
 {   
@@ -110,16 +111,14 @@ class PartieController extends AbstractController
         if($partie->getEtat() !== "DEMARREE"){
             $partieService->demarrerPartie($idPartie);
         }
-     
-        $joueurs = $partie->getJoueurs();
-        
+        $joueurs = $partie->getJoueurs();    
         foreach($joueurs as $joueur){
             if($joueur->getId() === $this->getSessionVariable('idJoueur',$req)){
                 $joueurPrincipal = $joueur;
             }else{
                 $joueursAdverses[] = $joueur;
             }
-        }
+        }   
 
         return $this->render('partie/plateau-de-jeu.html.twig',
                             [
@@ -142,6 +141,112 @@ class PartieController extends AbstractController
 
     }
 
+    /**
+     * @Route ("/castASpell")
+     *
+     * @param PartieService $partieService
+     * @return void
+     */
+    public function castASpell(PartieService $partieService){
+        $cartes = $_POST['cartes'];
+        $sort = $partieService->isSortValid($cartes);
+
+        return $this->json($sort);
+
+    }
+
+    /**
+     * @Route ("/lancerSort")
+     *
+     * @param PartieService $partieService
+     * @param Request $req
+     * @return void
+     */
+    public function lancerSort(PartieService $partieService, Request $req){
+        $cartes = $_POST['cartes'];
+        $carteId1 = $cartes[0];
+        $carteId2 = $cartes[1];
+
+        $idCible = $_POST['cible'] ?? NULL;
+        $carteId3 = $_POST['carteDonnee'] ?? NULL;
+
+        $idPartie = $this->getSessionVariable('idPartie',$req);
+
+        $reponse = $partieService->lancerSort($idPartie,$carteId1,$carteId2,$idCible,$carteId3);
+        return $this->json($reponse);
+    }
+
+    /**
+     * @Route ("/aLaMain")
+     *
+     * @param PartieRepository $partieRepository
+     * @param Request $req
+     * @return void
+     */
+    public function aLaMain(JoueurRepository $joueurRepository, PartieRepository $partieRepository, Request $req){
+        $idPartie = $this->getSessionVariable('idPartie',$req);
+        $idJoueur = $this->getSessionVariable("idJoueur",$req);
+        $ordreJoueur = $joueurRepository->find($idJoueur)->getOrdre();
+        $partie = $partieRepository->find($idPartie);
+
+        $ordreActuel = $partie->getOrdreActuel();
+        $aLaMain = false;
+
+        if($ordreActuel == $ordreJoueur){
+            $aLaMain = true;
+        }
+
+        return $this->json($aLaMain);
+    }
+
+    /**
+     * @Route ("/getCarteJoueurActuel")
+     *
+     * @param JoueurRepository $joueurRepository
+     * @param PartieRepository $partieRepository
+     * @param Request $req
+     * @return void
+     */
+    public function getCarteJoueurActuel(JoueurRepository $joueurRepository, PartieRepository $partieRepository, Request $req){
+        $idJoueur =  $this->getSessionVariable("idJoueur",$req);
+        $joueurActuel = $joueurRepository->find($idJoueur);
+       
+        return $this->render('partie/_plateau-de-jeu-joueur-actuel.html.twig',  ['joueurActuel'=>$joueurActuel]);
+    }
+
+    /**
+     * @Route ("/getCarteJoueursAdverses")
+     *
+     * @param JoueurRepository $joueurRepository
+     * @param PartieRepository $partieRepository
+     * @param Request $req
+     * @return void
+     */
+    public function getCarteJoueursAdverses(JoueurRepository $joueurRepository, PartieRepository $partieRepository, Request $req){
+        $idPartie =  $this->getSessionVariable("idPartie",$req);
+        $partie = $partieRepository->find($idPartie);
+
+        $joueurs = $partie->getJoueurs();    
+        foreach($joueurs as $joueur){
+            if($joueur->getId() === $this->getSessionVariable('idJoueur',$req)){
+                $joueurPrincipal = $joueur;
+            }else{
+                $joueursAdverses[] = $joueur;
+            }
+        }   
+       
+        return $this->render('partie/_plateau-de-jeu-joueur-adverse.html.twig',  ['listeJoueursAdverse'=>$joueursAdverses]);
+    }
+
+    /**
+     * @Route ("/passerTour")
+     */
+    public function passerTour( PartieService $partieService, Request $req){
+        $idPartie = $this->getSessionVariable('idPartie',$req);
+        $partieService->passerTour($idPartie);
+        return $this->json("ok");
+    }
+
     public function addSessionVariable($paramName,$paramValue, $req){
 
         $req->getSession()->set($paramName, $paramValue);
@@ -153,3 +258,4 @@ class PartieController extends AbstractController
         return $paramName;
     }
 }
+ 

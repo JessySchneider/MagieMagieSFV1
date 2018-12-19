@@ -6,66 +6,13 @@
 {% endblock %}
 
 {% block body %}
- {# <div id="modal-sort" class="informations-sort">
-    <div class="testmodal">
-        <div class="sort">
-            <div class="ingredient-sort">
-                <img src="/assets/image/mandragorefini.png" alt=""/>
-                <i class="fas fa-plus-circle"></i>
-                <img src="/assets/image/lapis1fini.png" alt=""/>
-            </div>
-                <i class="fas fa-equals"></i>
-                <img src="/assets/image/lapis1fini.png" alt=""/>
-                Invisibilité
-        </div>
-        <div class="sort">
-            <div class="ingredient-sort">
-                <img src="/assets/image/mandragorefini.png" alt=""/>
-                <i class="fas fa-plus-circle"></i>
-                <img src="/assets/image/lapis1fini.png" alt=""/>
-            </div>
-                <i class="fas fa-equals"></i>
-                <img src="/assets/image/lapis1fini.png" alt=""/>
-                Invisibilité
-            </div>
-            <div class="sort">
-                <div class="ingredient-sort">
-                    <img src="/assets/image/mandragorefini.png" alt=""/>
-                    <i class="fas fa-plus-circle"></i>
-                    <img src="/assets/image/lapis1fini.png" alt=""/>
-                </div>
-                    <i class="fas fa-equals"></i>
-                    <img src="/assets/image/lapis1fini.png" alt=""/>
-                    Invisibilité
-                </div>
-                <div class="sort">
-                    <div class="ingredient-sort">
-                        <img src="/assets/image/mandragorefini.png" alt=""/>
-                        <i class="fas fa-plus-circle"></i>
-                        <img src="/assets/image/lapis1fini.png" alt=""/>
-                    </div>
-                        <i class="fas fa-equals"></i>
-                        <img src="/assets/image/lapis1fini.png" alt=""/>
-                        Invisibilité
-                </div>
-                    <div class="sort">
-                        <div class="ingredient-sort">
-                            <img src="/assets/image/mandragorefini.png" alt=""/>
-                            <i class="fas fa-plus-circle"></i>
-                            <img src="/assets/image/lapis1fini.png" alt=""/>
-                        </div>
-                        <i class="fas fa-equals"></i>
-                        <img src="/assets/image/lapis1fini.png" alt=""/>
-                        Invisibilité
-                </div>
-             </div>
-         </div> #}
+<main>
     <div class="adversaire-top">
         {% for joueur in listeJoueursAdverse %}
         <div class="joueur-adverse">
             <div class="container-avatar-joueur-plateau">
-                <img src="/assets/image/carte-joueur-avatar.png" alt=""/>
-                <img class="avatar-joueur-plateau" src="/assets/image/ava{{joueur.avatar}}.jpg" alt=""/>
+                <img src="/assets/image/carte-joueur-avatar.png" value="{{joueur.id}}" alt=""/>
+                <img class="avatar-joueur-plateau" src="/assets/image/ava{{joueur.avatar}}.jpg"  alt=""/>
                 <span>{{joueur.pseudo}}</span>
             </div>
             <div class="carte-adversaire">
@@ -76,19 +23,23 @@
         </div>      
         {% endfor %}  
     </div>
-
+  <div class="message"></div>
+  <div class="message-cible">Sélectionnez une cible</div>
+  <div class="lancer-sort"></div>
+  <div class="passer-tour">Passer son tour</div>
     <div class="joueur-bottom">
+      
         <div class="container-avatar-joueur-plateau">
-            <img src="/assets/image/carte-joueur-avatar.png" alt=""/>
+            <img src="/assets/image/carte-joueur-avatar.png" value="{{joueurActuel.id}}" alt=""/>
             <img class="avatar-joueur-plateau" src="/assets/image/ava{{joueurActuel.avatar}}.jpg" alt=""/>
             <span>{{joueurActuel.pseudo}}</span>
         </div>
         <div class="carte-joueur">
             {% for carte in joueurActuel.cartes %}
-                
-                <img src="/assets/image/{{carte.type}}.png" value="{{carte.id}} alt=""/>
+                <img src="/assets/image/{{carte.type}}.png" value="{{carte.id}}" alt=""/>
             {% endfor %}
         </div>
     </div>
+    </main>
 
 {% endblock %}

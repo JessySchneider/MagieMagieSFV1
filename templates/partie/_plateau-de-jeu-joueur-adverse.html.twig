@@ -1,0 +1,16 @@
+{% for joueur in listeJoueursAdverse %}
+<div class="joueur-adverse">
+    <div class="container-avatar-joueur-plateau">
+        <img src="/assets/image/carte-joueur-avatar.png" value="{{joueur.id}}" alt=""/>
+        <img class="avatar-joueur-plateau" src="/assets/image/ava{{joueur.avatar}}.jpg"  alt=""/>
+        <span>{{joueur.pseudo}}</span>
+    </div>
+    <div class="carte-adversaire">
+    {% for carte in joueur.cartes %}
+        <img src="/assets/image/carte-dos.png" alt="">
+    {% endfor %}            
+    </div>
+</div>      
+{% endfor %}  
+
+

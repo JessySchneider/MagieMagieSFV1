@@ -5,9 +5,7 @@
  */
 $( document ).ready(function() {
     $('.creer-une-partie').on("click",createGame);
-
     $('body').on('click', '.rejoindre-partie', joinGame);
-
 
     if($('.creer-une-partie').length > 0 ){
         setInterval(listerPartie,2000);
@@ -16,8 +14,6 @@ $( document ).ready(function() {
     function listerPartie(){
         $('.container-listes-parties').load('/ajaxListePartie');
     }
-
- 
 
     function joinGame(){
         var idPartie = $(this).val();
